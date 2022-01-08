@@ -21,7 +21,7 @@ class StatisticsService
     /**
      * @var StatisticsCalculatorFactory
      */
-    private $factory;
+    private StatisticsCalculatorFactory $factory;
 
     /**
      * StatisticsService constructor.

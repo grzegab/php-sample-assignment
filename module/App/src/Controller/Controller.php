@@ -17,7 +17,7 @@ abstract class Controller implements ControllerInterface
      * @param string $template
      * @param bool   $useLayout
      */
-    public function render(array $vars, string $template, $useLayout = true)
+    public function render(array $vars, string $template, bool $useLayout = true): void
     {
         $templateFile = sprintf(__DIR__ . '/../../view/%s.phtml', $template);
         if (!file_exists($templateFile)) {

@@ -24,12 +24,12 @@ class SocialPostService
     /**
      * @var SocialDriverInterface
      */
-    private $driver;
+    private SocialDriverInterface $driver;
 
     /**
      * @var SocialPostHydratorInterface
      */
-    private $hydrator;
+    private SocialPostHydratorInterface $hydrator;
 
     /**
      * SocialPostService constructor.

@@ -15,12 +15,12 @@ class FetchParamsTo
     /**
      * @var int
      */
-    private $pageLimit;
+    private int $pageLimit;
 
     /**
      * @var int
      */
-    private $pageOffset;
+    private int $pageOffset;
 
     /**
      * FetchParamsTo constructor.

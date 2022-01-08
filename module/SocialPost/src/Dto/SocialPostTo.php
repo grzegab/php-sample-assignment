@@ -17,32 +17,32 @@ class SocialPostTo
     /**
      * @var string
      */
-    private $id;
+    private string $id;
 
     /**
      * @var string
      */
-    private $authorId;
+    private string $authorId;
 
     /**
      * @var string
      */
-    private $authorName;
+    private string $authorName;
 
     /**
      * @var string
      */
-    private $text;
+    private string $text;
 
     /**
      * @var string
      */
-    private $type;
+    private string $type;
 
     /**
      * @var DateTime
      */
-    private $date;
+    private DateTime $date;
 
     /**
      * @return string|null

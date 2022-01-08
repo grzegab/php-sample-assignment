@@ -22,17 +22,17 @@ class SocialClientCacheDecorator implements SocialClientInterface
     /**
      * @var SocialClientInterface
      */
-    private $fallbackClient;
+    private SocialClientInterface $fallbackClient;
 
     /**
      * @var CacheInterface
      */
-    private $cache;
+    private CacheInterface $cache;
 
     /**
      * @var string
      */
-    private $cachePrefix;
+    private string $cachePrefix;
 
     /**
      * SocialDriverCacheDecorator constructor.

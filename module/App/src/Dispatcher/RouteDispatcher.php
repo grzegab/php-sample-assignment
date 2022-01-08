@@ -19,7 +19,7 @@ class RouteDispatcher
     /**
      * @param string $requestUri
      */
-    public static function dispatch(string $requestUri)
+    public static function dispatch(string $requestUri): void
     {
         $parts = explode('?', $requestUri);
 

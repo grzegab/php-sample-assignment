@@ -21,12 +21,12 @@ class FictionalClient implements SocialClientInterface
     /**
      * @var string
      */
-    private $clientId;
+    private string $clientId;
 
     /**
      * @var Client
      */
-    private $client;
+    private Client $client;
 
     /**
      * FictionalSocialApiClient constructor.

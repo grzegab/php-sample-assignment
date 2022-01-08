@@ -17,17 +17,17 @@ class ParamsTo
     /**
      * @var string
      */
-    private $statName;
+    private string $statName;
 
     /**
      * @var DateTime
      */
-    private $startDate;
+    private DateTime $startDate;
 
     /**
      * @var DateTime
      */
-    private $endDate;
+    private DateTime $endDate;
 
     /**
      * @return string|null

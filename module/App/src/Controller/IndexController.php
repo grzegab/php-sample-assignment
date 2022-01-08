@@ -12,7 +12,7 @@ namespace App\Controller;
 class IndexController extends Controller
 {
 
-    public function indexAction()
+    public function indexAction(): void
     {
         $options = [];
         $date    = new \DateTime();

@@ -18,7 +18,7 @@ class CalculatorComposite implements CalculatorInterface
     /**
      * @var CalculatorInterface[]
      */
-    private $children = [];
+    private array $children = [];
 
     /**
      * @param CalculatorInterface $child

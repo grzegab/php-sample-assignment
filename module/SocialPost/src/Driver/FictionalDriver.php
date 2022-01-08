@@ -30,12 +30,12 @@ class FictionalDriver implements SocialDriverInterface
     /**
      * @var SocialClientInterface
      */
-    private $client;
+    private SocialClientInterface $client;
 
     /**
      * @var CacheInterface
      */
-    private $cache;
+    private CacheInterface $cache;
 
     /**
      * FictionalSocialApiDriver constructor.
