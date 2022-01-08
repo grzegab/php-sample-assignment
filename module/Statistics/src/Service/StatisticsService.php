@@ -41,7 +41,7 @@ class StatisticsService
      */
     public function calculateStats(Traversable $posts, array $params): StatisticsTo
     {
-        $calculator = $this->factory->create($params);
+        $calculator = $this->factory::create($params);
 
         foreach ($posts as $post) {
             if (!$post instanceof SocialPostTo) {

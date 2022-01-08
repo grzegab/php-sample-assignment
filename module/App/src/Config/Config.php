@@ -46,8 +46,6 @@ class Config
             static::init();
         }
 
-        return array_key_exists($key, static::$config)
-            ? static::$config[$key]
-            : null;
+        return static::$config[$key] ?? null;
     }
 }

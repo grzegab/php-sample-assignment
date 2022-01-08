@@ -23,7 +23,7 @@ class RouteDispatcher
     {
         $parts = explode('?', $requestUri);
 
-        list($path, $query) = array_pad($parts, 2, null);
+        [$path, $query] = array_pad($parts, 2, null);
 
         parse_str($query, $params);
 
@@ -33,7 +33,7 @@ class RouteDispatcher
         }
 
         $parts = explode('@', $routes[$path]);
-        list($controllerName, $action) = $parts;
+        [$controllerName, $action] = $parts;
 
         $controller = static::locateController($controllerName);
 
@@ -49,7 +49,7 @@ class RouteDispatcher
     {
         $config = Config::get('controllers');
 
-        if (in_array($name, $config['invokables'])) {
+        if (in_array($name, $config['invokables'], true)) {
             return new $name();
         }
 

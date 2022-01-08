@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace SocialPost\Client;
 
 use Closure;
+use JsonException;
 use Psr\SimpleCache\CacheInterface;
 use Psr\SimpleCache\InvalidArgumentException;
 
@@ -113,9 +114,10 @@ class SocialClientCacheDecorator implements SocialClientInterface
 
     /**
      * @param string $url
-     * @param array  $parameters
+     * @param array $parameters
      *
      * @return string
+     * @throws JsonException
      */
     protected function assembleCacheKey(string $url, array $parameters): string
     {
@@ -124,7 +126,7 @@ class SocialClientCacheDecorator implements SocialClientInterface
                 '%s-%s-%s',
                 $this->cachePrefix,
                 $url,
-                json_encode($parameters)
+                json_encode($parameters, JSON_THROW_ON_ERROR)
             )
         );
     }

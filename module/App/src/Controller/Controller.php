@@ -24,7 +24,7 @@ abstract class Controller implements ControllerInterface
             throw new \RuntimeException(sprintf('Template %s not found', $template));
         }
 
-        extract($vars);
+        extract($vars, EXTR_OVERWRITE);
 
         $content = $templateFile;
 
