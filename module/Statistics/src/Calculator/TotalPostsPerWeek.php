@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Statistics\Calculator;
 
 use SocialPost\Dto\SocialPostTo;

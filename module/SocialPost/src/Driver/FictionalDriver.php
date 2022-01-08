@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SocialPost\Driver;
 
 use Psr\SimpleCache\CacheInterface;

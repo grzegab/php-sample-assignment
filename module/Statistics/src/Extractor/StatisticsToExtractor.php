@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Statistics\Extractor;
 
 use Statistics\Dto\StatisticsTo;

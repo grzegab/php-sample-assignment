@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SocialPost\Driver\Factory;
 
 use SocialPost\Cache\Factory\CacheFactory;
