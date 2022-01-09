@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Controller;
 
 /**
@@ -10,7 +12,7 @@ namespace App\Controller;
 class ErrorController extends Controller
 {
 
-    public function notFoundAction()
+    public function notFoundAction(): void
     {
         $this->render(['message' => 'Page not found'], 'error');
     }

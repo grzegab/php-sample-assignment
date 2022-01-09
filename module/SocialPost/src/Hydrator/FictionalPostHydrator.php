@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SocialPost\Hydrator;
 
 use DateTime;
@@ -22,15 +24,13 @@ class FictionalPostHydrator implements SocialPostHydratorInterface
      */
     public function hydrate(array $postData): SocialPostTo
     {
-        $dto = (new SocialPostTo())
+        return (new SocialPostTo())
             ->setId($postData['id'] ?? null)
             ->setAuthorName($postData['from_name'] ?? null)
             ->setAuthorId($postData['from_id'] ?? null)
             ->setText($postData['message'] ?? null)
             ->setType($postData['type'] ?? null)
             ->setDate($this->hydrateDate($postData['created_time'] ?? null));
-
-        return $dto;
     }
 
     /**
@@ -40,11 +40,11 @@ class FictionalPostHydrator implements SocialPostHydratorInterface
      */
     private function hydrateDate(?string $date): ?DateTime
     {
-        $date = DateTime::createFromFormat(
+        $dateObject = DateTime::createFromFormat(
             self::POST_CREATED_DATE_FORMAT,
             $date
         );
 
-        return false === $date ? null : $date;
+        return false === $dateObject ? null : $dateObject;
     }
 }
