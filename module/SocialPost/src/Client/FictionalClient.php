@@ -1,11 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SocialPost\Client;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Exception\ServerException;
 use GuzzleHttp\Psr7\Request;
+use JsonException;
 use SocialPost\Exception\InvalidTokenException;
 
 /**
@@ -19,12 +22,12 @@ class FictionalClient implements SocialClientInterface
     /**
      * @var string
      */
-    private $clientId;
+    private string $clientId;
 
     /**
      * @var Client
      */
-    private $client;
+    private Client $client;
 
     /**
      * FictionalSocialApiClient constructor.
@@ -81,12 +84,13 @@ class FictionalClient implements SocialClientInterface
     /**
      * @param string $method
      * @param string $url
-     * @param array  $headers
-     * @param array  $parameters
-     * @param array  $body
+     * @param array $headers
+     * @param array $parameters
+     * @param array $body
      *
      * @return string
      * @throws GuzzleException
+     * @throws JsonException
      */
     protected function request(string $method, string $url, array $headers, array $parameters, array $body = []): string
     {
@@ -94,9 +98,9 @@ class FictionalClient implements SocialClientInterface
             $url = sprintf('%s?%s', $url, http_build_query($parameters));
         }
 
-        $body = empty($body) ? null : json_encode($body);
+        $encodedBody = empty($body) ? null : json_encode($body, JSON_THROW_ON_ERROR);
 
-        $request = new Request($method, $url, $headers, $body);
+        $request = new Request($method, $url, $headers, $encodedBody);
 
         try {
             $response = $this->client->send($request);
@@ -108,9 +112,7 @@ class FictionalClient implements SocialClientInterface
             throw $exception;
         }
 
-        $contents = $response->getBody()->getContents();
-
-        return $contents;
+        return $response->getBody()->getContents();
     }
 
     /**
@@ -125,12 +127,6 @@ class FictionalClient implements SocialClientInterface
             true
         );
 
-        if (!isset($response['error']['message'])
-            || 'Invalid SL Token' !== $response['error']['message']
-        ) {
-            return false;
-        }
-
-        return true;
+        return !(!isset($response['error']['message']) || 'Invalid SL Token' !== $response['error']['message']);
     }
 }

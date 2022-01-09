@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SocialPost\Driver;
 
 use Psr\SimpleCache\CacheInterface;
@@ -28,12 +30,12 @@ class FictionalDriver implements SocialDriverInterface
     /**
      * @var SocialClientInterface
      */
-    private $client;
+    private SocialClientInterface $client;
 
     /**
-     * @var CacheInterface
+     * @var CacheInterface|null
      */
-    private $cache;
+    private CacheInterface|null $cache;
 
     /**
      * FictionalSocialApiDriver constructor.

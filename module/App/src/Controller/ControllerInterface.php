@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Controller;
 
 /**
@@ -15,5 +17,5 @@ interface ControllerInterface
      * @param string $template
      * @param bool   $useLayout
      */
-    public function render(array $vars, string $template, $useLayout = true);
+    public function render(array $vars, string $template, bool $useLayout = true): void;
 }

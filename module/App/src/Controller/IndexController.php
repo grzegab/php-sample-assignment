@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Controller;
 
 /**
@@ -10,7 +12,7 @@ namespace App\Controller;
 class IndexController extends Controller
 {
 
-    public function indexAction()
+    public function indexAction(): void
     {
         $options = [];
         $date    = new \DateTime();

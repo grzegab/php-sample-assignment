@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Statistics\Dto;
 
 /**
@@ -11,36 +13,36 @@ class StatisticsTo
 {
 
     /**
-     * @var string
+     * @var string|null
      */
-    private $name;
+    private ?string $name;
 
     /**
-     * @var float
+     * @var float|null
      */
-    private $value;
+    private ?float $value;
 
     /**
-     * @var string
+     * @var string|null
      */
-    private $splitPeriod;
+    private ?string $splitPeriod;
 
     /**
-     * @var string
+     * @var string|null
      */
-    private $units;
+    private ?string $units;
 
     /**
      * @var StatisticsTo[]
      */
-    private $children = [];
+    private array $children = [];
 
     /**
      * @return string|null
      */
     public function getName(): ?string
     {
-        return $this->name;
+        return $this->name ?? null;
     }
 
     /**
@@ -48,7 +50,7 @@ class StatisticsTo
      */
     public function getValue(): ?float
     {
-        return $this->value;
+        return $this->value ?? null;
     }
 
     /**
@@ -100,7 +102,7 @@ class StatisticsTo
      */
     public function getSplitPeriod(): ?string
     {
-        return $this->splitPeriod;
+        return $this->splitPeriod ?? null;
     }
 
     /**
@@ -120,7 +122,7 @@ class StatisticsTo
      */
     public function getUnits(): ?string
     {
-        return $this->units;
+        return $this->units ?? null;
     }
 
     /**

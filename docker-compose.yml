@@ -5,6 +5,8 @@ services:
     image: php_assignment:latest
     container_name: php_assignment
     restart: "no"
+    volumes:
+      - ./:/app
     build:
       context: ./
       dockerfile: Dockerfile

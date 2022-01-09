@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SocialPost\Hydrator;
 
 use SocialPost\Dto\SocialPostTo;

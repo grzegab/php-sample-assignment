@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Statistics\Calculator;
 
 use SocialPost\Dto\SocialPostTo;
@@ -18,7 +20,7 @@ class TotalPostsPerWeek extends AbstractCalculator
     /**
      * @var array
      */
-    private $totals = [];
+    private array $totals = [];
 
     /**
      * @param SocialPostTo $postTo

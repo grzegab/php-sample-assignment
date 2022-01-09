@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SocialPost\Service;
 
 use SocialPost\Driver\SocialDriverInterface;
@@ -22,12 +24,12 @@ class SocialPostService
     /**
      * @var SocialDriverInterface
      */
-    private $driver;
+    private SocialDriverInterface $driver;
 
     /**
      * @var SocialPostHydratorInterface
      */
-    private $hydrator;
+    private SocialPostHydratorInterface $hydrator;
 
     /**
      * SocialPostService constructor.

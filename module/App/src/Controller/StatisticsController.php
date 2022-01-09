@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Controller;
 
 use DateTime;
@@ -27,17 +29,17 @@ class StatisticsController extends Controller
     /**
      * @var StatisticsService
      */
-    private $statsService;
+    private StatisticsService $statsService;
 
     /**
      * @var SocialPostService
      */
-    private $socialService;
+    private SocialPostService $socialService;
 
     /**
      * @var StatisticsToExtractor
      */
-    private $extractor;
+    private StatisticsToExtractor $extractor;
 
     /**
      * StatisticsController constructor.
@@ -59,7 +61,7 @@ class StatisticsController extends Controller
     /**
      * @param array $params
      */
-    public function indexAction(array $params)
+    public function indexAction(array $params): void
     {
         try {
             $date   = $this->extractDate($params);

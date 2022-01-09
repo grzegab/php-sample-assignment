@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Controller;
 
 /**
@@ -15,14 +17,14 @@ abstract class Controller implements ControllerInterface
      * @param string $template
      * @param bool   $useLayout
      */
-    public function render(array $vars, string $template, $useLayout = true)
+    public function render(array $vars, string $template, bool $useLayout = true): void
     {
         $templateFile = sprintf(__DIR__ . '/../../view/%s.phtml', $template);
         if (!file_exists($templateFile)) {
             throw new \RuntimeException(sprintf('Template %s not found', $template));
         }
 
-        extract($vars);
+        extract($vars, EXTR_OVERWRITE);
 
         $content = $templateFile;
 
