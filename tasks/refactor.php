@@ -1,5 +1,10 @@
 <?php
 
+//NEXT STEP: divide into separate classes
+//NEXT STEP: use parameters from env file
+//NEXT STEP: check for errors (throwable)
+//NEXT STEP: add tests
+
 $requestEmail = htmlentities($_REQUEST['email']);
 $requestMasterEmail = htmlentities($_REQUEST["masterEmail"]);
 
