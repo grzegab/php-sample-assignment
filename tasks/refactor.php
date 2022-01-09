@@ -7,14 +7,14 @@ $masterEmail = $requestEmail ?? $requestMasterEmail ?? 'unknown';
 
 echo 'The master email is ' . $masterEmail . '\n';
 
-$conn = mysqli_connect('localhost', 'root', 'sldjfpoweifns', 'my_database');
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+$mysqli = new mysqli("localhost", "root", "sldjfpoweifns", "my_database");
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+$query = sprintf("SELECT * FROM users WHERE email='%s'", $mysqli->real_escape_string($masterEmail));
+$result = $mysqli->query($query);
+
+if ($result) {
+    while ($row = $result->fetch_assoc()) {
+        printf("%s\n", $row['username']);
+    }
 }
-
-$res = mysqli_query($conn, "SELECT * FROM users WHERE email='" . $masterEmail . "'");
-$row = mysqli_fetch_row($res);
-
-echo $row['username'] . "\n";
