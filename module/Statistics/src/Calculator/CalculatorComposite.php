@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Statistics\Calculator;
 
 use SocialPost\Dto\SocialPostTo;
@@ -16,7 +18,7 @@ class CalculatorComposite implements CalculatorInterface
     /**
      * @var CalculatorInterface[]
      */
-    private $children = [];
+    private array $children = [];
 
     /**
      * @param CalculatorInterface $child
@@ -35,7 +37,7 @@ class CalculatorComposite implements CalculatorInterface
      */
     public function accumulateData(SocialPostTo $postTo): void
     {
-        foreach ($this->children as $key => $child) {
+        foreach ($this->children as $child) {
             $child->accumulateData($postTo);
         }
     }
@@ -47,7 +49,7 @@ class CalculatorComposite implements CalculatorInterface
     {
         $statistics = new StatisticsTo();
 
-        foreach ($this->children as $key => $child) {
+        foreach ($this->children as $child) {
             $statistics->addChild($child->calculate());
         }
 

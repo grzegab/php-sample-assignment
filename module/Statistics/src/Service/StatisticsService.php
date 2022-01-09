@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Statistics\Service;
 
 use SocialPost\Dto\SocialPostTo;
@@ -19,7 +21,7 @@ class StatisticsService
     /**
      * @var StatisticsCalculatorFactory
      */
-    private $factory;
+    private StatisticsCalculatorFactory $factory;
 
     /**
      * StatisticsService constructor.
@@ -39,7 +41,7 @@ class StatisticsService
      */
     public function calculateStats(Traversable $posts, array $params): StatisticsTo
     {
-        $calculator = $this->factory->create($params);
+        $calculator = $this->factory::create($params);
 
         foreach ($posts as $post) {
             if (!$post instanceof SocialPostTo) {

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Config;
 
 /**
@@ -13,12 +15,12 @@ class Config
     /**
      * @var bool
      */
-    private static $initialised = false;
+    private static bool $initialised = false;
 
     /**
      * @var array
      */
-    private static $config = [];
+    private static array $config = [];
 
     /**
      * @return void
@@ -38,14 +40,12 @@ class Config
      *
      * @return mixed
      */
-    public static function get(string $key)
+    public static function get(string $key): mixed
     {
         if (false === static::$initialised) {
             static::init();
         }
 
-        return array_key_exists($key, static::$config)
-            ? static::$config[$key]
-            : null;
+        return static::$config[$key] ?? null;
     }
 }

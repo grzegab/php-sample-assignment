@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Statistics\Calculator;
 
 use SocialPost\Dto\SocialPostTo;
@@ -19,7 +21,7 @@ abstract class AbstractCalculator implements CalculatorInterface
     /**
      * @var ParamsTo
      */
-    protected $parameters;
+    protected ParamsTo $parameters;
 
     /**
      * @param ParamsTo $params

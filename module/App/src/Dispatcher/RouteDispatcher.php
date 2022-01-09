@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Dispatcher;
 
 use App\Config\Config;
@@ -17,13 +19,13 @@ class RouteDispatcher
     /**
      * @param string $requestUri
      */
-    public static function dispatch(string $requestUri)
+    public static function dispatch(string $requestUri): void
     {
         $parts = explode('?', $requestUri);
 
-        list($path, $query) = array_pad($parts, 2, null);
+        [$path, $query] = array_pad($parts, 2, null);
 
-        parse_str($query, $params);
+        parse_str($query ?? "", $params);
 
         $routes = Config::get('routes');
         if (!array_key_exists($path, $routes)) {
@@ -31,7 +33,7 @@ class RouteDispatcher
         }
 
         $parts = explode('@', $routes[$path]);
-        list($controllerName, $action) = $parts;
+        [$controllerName, $action] = $parts;
 
         $controller = static::locateController($controllerName);
 
@@ -47,7 +49,7 @@ class RouteDispatcher
     {
         $config = Config::get('controllers');
 
-        if (in_array($name, $config['invokables'])) {
+        if (in_array($name, $config['invokables'], true)) {
             return new $name();
         }
 

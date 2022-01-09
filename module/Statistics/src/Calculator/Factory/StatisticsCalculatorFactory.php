@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Statistics\Calculator\Factory;
 
 use Statistics\Calculator\AbstractCalculator;
