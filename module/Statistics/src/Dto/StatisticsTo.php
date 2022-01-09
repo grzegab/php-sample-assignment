@@ -13,24 +13,24 @@ class StatisticsTo
 {
 
     /**
-     * @var string
+     * @var string|null
      */
-    private string $name;
+    private ?string $name;
 
     /**
-     * @var float
+     * @var float|null
      */
-    private float $value;
+    private ?float $value;
 
     /**
-     * @var string
+     * @var string|null
      */
-    private string $splitPeriod;
+    private ?string $splitPeriod;
 
     /**
-     * @var string
+     * @var string|null
      */
-    private string $units;
+    private ?string $units;
 
     /**
      * @var StatisticsTo[]
@@ -42,7 +42,7 @@ class StatisticsTo
      */
     public function getName(): ?string
     {
-        return $this->name;
+        return $this->name ?? null;
     }
 
     /**
@@ -50,7 +50,7 @@ class StatisticsTo
      */
     public function getValue(): ?float
     {
-        return $this->value;
+        return $this->value ?? null;
     }
 
     /**
@@ -102,7 +102,7 @@ class StatisticsTo
      */
     public function getSplitPeriod(): ?string
     {
-        return $this->splitPeriod;
+        return $this->splitPeriod ?? null;
     }
 
     /**
@@ -122,7 +122,7 @@ class StatisticsTo
      */
     public function getUnits(): ?string
     {
-        return $this->units;
+        return $this->units ?? null;
     }
 
     /**
