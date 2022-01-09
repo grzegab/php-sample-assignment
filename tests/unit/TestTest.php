@@ -13,9 +13,6 @@ use PHPUnit\Framework\TestCase;
  */
 class TestTest extends TestCase
 {
-    /**
-     * @test
-     */
     public function testNothing(): void
     {
         $this->assertTrue(true);
