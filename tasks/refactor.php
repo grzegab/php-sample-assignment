@@ -1,7 +1,7 @@
 <?php
 
-$requestEmail = $_REQUEST['email'] ?? null;
-$requestMasterEmail = $_REQUEST["masterEmail"] ?? null;
+$requestEmail = htmlentities($_REQUEST['email']);
+$requestMasterEmail = htmlentities($_REQUEST["masterEmail"]);
 
 $masterEmail = $requestEmail ?? $requestMasterEmail ?? 'unknown';
 
